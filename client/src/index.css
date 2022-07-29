@@ -20,12 +20,6 @@ p {
   padding: 1em;
 }
 
-#outline {
-  outline: 2px solid lightgray;
-
-  -webkit-margin-top-collapse: 1em;
-}
-
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -43,9 +37,11 @@ select {
   font-size: 1em;
   font-family: 'Open Sans', sans-serif;
 }
+
 select::-ms-expand {
   display: none;
 }
+
 .select {
   position: relative;
   display: flex;
@@ -56,6 +52,7 @@ select::-ms-expand {
   overflow: hidden;
   border-radius: .25em;
 }
+
 .select::after {
   content: '\25BC';
   position: absolute;
@@ -67,6 +64,13 @@ select::-ms-expand {
   pointer-events: none;
   transition: .25s all ease;
 }
+
 .select:hover::after {
   color: #92a2ad;
+}
+
+#outline {
+  outline: 2px solid lightgray;
+
+  -webkit-margin-top-collapse: 1em;
 }
