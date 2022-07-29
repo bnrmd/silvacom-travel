@@ -1,9 +1,32 @@
+/** Express router providing city related routes.
+ * @module routes/cities
+ * @requires express
+ */
+
+/**
+ * express module
+ * @const
+ */
 const express = require('express');
-const router = express.Router();
+
+/**
+ * Model that represents schema of a City object.
+ * @const
+ */
 const City = require('../models/City');
 
 /**
- * Get all cities
+ * Express router to mount city related functions on.
+ * @type {object}
+ * @const
+ * @namespace citiesRoute
+ */
+const router = express.Router();
+
+/**
+ * Route that serves to get all cities.
+ * @name get/cities
+ * @function
  */
 router.get('/', async (req, res) => {
   try {
@@ -12,7 +35,6 @@ router.get('/', async (req, res) => {
       "Access-Control-Allow-Origin": "*",
     });
     const cities = await City.find();
-    // res.json(cities);
     res.json(cities);
   } catch (err) {
     res.json({message: err});
@@ -20,7 +42,9 @@ router.get('/', async (req, res) => {
 });
 
 /**
- * Get city by UUID
+ * Route that serves to get city by UUID.
+ * @name get/cities/:cityId
+ * @function
  */
 router.get('/:cityId', async (req, res) => {
   try {
@@ -34,11 +58,5 @@ router.get('/:cityId', async (req, res) => {
     res.json({message: err});
   }
 });
-
-// router.get('/:cityName', async (req, res) => {
-//   try {
-//     const city = await City.find
-//   }
-// })
 
 module.exports = router;

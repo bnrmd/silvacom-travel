@@ -1,15 +1,38 @@
-const express = require('express');
-const request = require('request');
-const router = express.Router();
-
-require('dotenv/config');
-
-router.get('/', async (req, res) => {
-  console.log('hello')
-});
+/** Express router providing weather related routes.
+ * @module routes/weather
+ * @requires express
+ * @requires request
+ */
 
 /**
- * Get weather by city name
+ * express module
+ * @const
+ */
+const express = require('express');
+
+/**
+ * request module
+ * @const
+ */
+const request = require('request');
+
+/**
+ * Express router to mount weather related functions on.
+ * @type {object}
+ * @const
+ * @namespace citiesRoute
+ */
+const router = express.Router();
+
+/**
+ * Requires .env config.
+ */
+require('dotenv/config');
+
+/**
+ * Route that serves to get weather by city name.
+ * @name get/weather/:cityName
+ * @function
  */
 router.get('/:cityName', async (req, res) => {
 
@@ -21,7 +44,6 @@ router.get('/:cityName', async (req, res) => {
     if (!error && response.statusCode == 200) {
       const parsedBody = JSON.parse(body);
       res.send(parsedBody);
-      // res.json(body);
     }
   })
 });

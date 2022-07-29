@@ -1,7 +1,9 @@
 import React from 'react';
 
-class DropDown extends React.Component {
-
+/**
+ * Dropdown component
+ */
+class Dropdown extends React.Component {
   state = {
     loading: true,
     values: [],
@@ -54,7 +56,7 @@ class DropDown extends React.Component {
     return <div className="drop-down">
       {this.state.loading ? <div>Loading...</div> :
         <div>
-          <div class="select">
+          <div className="select">
             <select name="format" id="format" onChange={this.handleDropdownChange}>{
               this.state.values.map((obj) => {
                 return <option value={obj._id} >{obj.name}</option>
@@ -68,4 +70,4 @@ class DropDown extends React.Component {
   }
 }
 
-export default DropDown;
+export default Dropdown;
