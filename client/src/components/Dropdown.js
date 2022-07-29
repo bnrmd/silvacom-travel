@@ -54,13 +54,15 @@ class DropDown extends React.Component {
     return <div className="drop-down">
       {this.state.loading ? <div>Loading...</div> :
         <div>
-          <select onChange={this.handleDropdownChange}>{
-            this.state.values.map((obj) => {
-              return <option value={obj._id} >{obj.name}</option>
-            })
-          }</select>
-          <p>{this.state.values.find(field => field._id == this.state.selectValue).description}</p>
-          <p>Current weather in {this.state.values.find(field => field._id == this.state.selectValue).name} is {this.state.weather.current.weather_descriptions[0].toLowerCase()} with a temperature of {this.state.weather.current.temperature}°.</p>
+          <div class="select">
+            <select name="format" id="format" onChange={this.handleDropdownChange}>{
+              this.state.values.map((obj) => {
+                return <option value={obj._id} >{obj.name}</option>
+              })
+            }</select>
+          </div>
+          <div id="outline"><p>{this.state.values.find(field => field._id == this.state.selectValue).description}</p></div>
+          <div id="outline"><p>Current weather in {this.state.values.find(field => field._id == this.state.selectValue).name} is {this.state.weather.current.weather_descriptions[0].toLowerCase()} with a temperature of {this.state.weather.current.temperature}°.</p></div>
         </div>}
     </div>;
   }
