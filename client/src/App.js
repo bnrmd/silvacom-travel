@@ -1,8 +1,15 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 function App() {
+
+
+
   return (
-    <div>App</div>
+    <div>
+
+      <h1>Trip Planner</h1>
+
+    </div>
   )
 }
 
